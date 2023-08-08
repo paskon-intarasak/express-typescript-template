@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "ESNext",
+		"sourceMap": true,
+		"outDir": "dist",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"esModuleInterop": false,
+		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true
+	},
+	"exclude": ["node_modules"]
+}
