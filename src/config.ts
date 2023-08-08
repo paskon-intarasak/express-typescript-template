@@ -34,6 +34,7 @@ export class Configuration {
     // ====== SET Config HERE ======
     // #### MAPPING configuration from jsonfile to strongly-typed model
     Configuration.title = process.env.APP_NAME;
+    Configuration.port = parseInt(process.env.APP_PORT)
     Configuration.env = process.env.APP_ENV;
     Configuration.timezone = process.env.APP_TIMEZONE;
     Configuration.jwtSecret = process.env.APP_JWTSEC;
