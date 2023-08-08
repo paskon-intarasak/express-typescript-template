@@ -3,6 +3,11 @@ import * as process from 'process';
 
 // =======================================
 
+export class SupabaseConfig {
+  supabaseUrl: string
+  supabaseJwt: string
+}
+
 /**
  * APP Main Configuration
  */
@@ -15,6 +20,7 @@ export class Configuration {
   static createReversibleUrl: string;
   static jwtSecret: string;
   static bcrypTier: number;
+  static supabaseConfig: SupabaseConfig
 
   static init() {
     // +++++++++++++++++++++++++[DONT CHANGE]+++++++++++++++++++++++++
@@ -32,5 +38,9 @@ export class Configuration {
     Configuration.timezone = process.env.APP_TIMEZONE;
     Configuration.jwtSecret = process.env.APP_JWTSEC;
     Configuration.bcrypTier = parseInt(process.env.APP_BCRYPT_TIER);
+    Configuration.supabaseConfig = {
+      supabaseUrl: process.env.APP_SUPABASE_URL,
+      supabaseJwt: process.env.APP_SUPABASE_JWT
+    }
   }
 }

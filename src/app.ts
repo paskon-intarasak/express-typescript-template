@@ -8,6 +8,7 @@ import { Configuration } from './config'
 import { Routes } from './routes'
 // import { } from './controllers'
 import { ApiResponse } from './base';
+import { createClient } from '@supabase/supabase-js'
 
 //====================
 const multer = require('multer');
@@ -62,7 +63,15 @@ const uploadStation = multer({
 Configuration.init();
 
 // ====== For Databases  ======
-async function initDatabases() { }
+async function initDatabases() {
+  try {
+    const supabaseConn = createClient(Configuration.supabaseConfig.supabaseUrl, Configuration.supabaseConfig.supabaseJwt)
+  } catch (error) {
+    console.error(`Failed to initialize supabase : ${error}`)
+    process.exit(1)
+  }
+
+}
 
 // ====== For Server  ======
 let app: express.Express;
