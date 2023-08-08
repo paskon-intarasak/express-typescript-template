@@ -19,9 +19,9 @@ const storageStation = multer.diskStorage({
       process.env.APP_ENV !== 'develop' &&
       process.env.APP_ENV !== 'production'
     ) {
-      path = `photos/station/`;
+      path = `photos/`;
     } else {
-      path = `${process.env.IMG_PATH}/station/`;
+      path = `${process.env.IMG_PATH}/`;
     }
 
     fs.mkdirsSync(path);
