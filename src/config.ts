@@ -4,8 +4,8 @@ import * as process from 'process';
 // =======================================
 
 export class SupabaseConfig {
-  supabaseUrl: string
-  supabaseJwt: string
+  supabaseUrl: string;
+  supabaseJwt: string;
 }
 
 /**
@@ -20,7 +20,6 @@ export class Configuration {
   static createReversibleUrl: string;
   static jwtSecret: string;
   static bcrypTier: number;
-  static supabaseConfig: SupabaseConfig
 
   static init() {
     // +++++++++++++++++++++++++[DONT CHANGE]+++++++++++++++++++++++++
@@ -34,14 +33,10 @@ export class Configuration {
     // ====== SET Config HERE ======
     // #### MAPPING configuration from jsonfile to strongly-typed model
     Configuration.title = process.env.APP_NAME;
-    Configuration.port = parseInt(process.env.APP_PORT)
+    Configuration.port = parseInt(process.env.APP_PORT);
     Configuration.env = process.env.APP_ENV;
     Configuration.timezone = process.env.APP_TIMEZONE;
     Configuration.jwtSecret = process.env.APP_JWTSEC;
     Configuration.bcrypTier = parseInt(process.env.APP_BCRYPT_TIER);
-    Configuration.supabaseConfig = {
-      supabaseUrl: process.env.APP_SUPABASE_URL,
-      supabaseJwt: process.env.APP_SUPABASE_JWT
-    }
   }
 }
