@@ -33,8 +33,6 @@ export class Configuration {
       envFileName = path.join(__dirname, '../.env.develop');
     }
 
-    console.log(envFileName);
-
     if (envFileName) {
       if (fs.existsSync(envFileName)) {
         require('dotenv').config({ path: envFileName });
