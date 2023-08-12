@@ -1,5 +1,6 @@
 import * as path from 'path';
 import * as process from 'process';
+import * as fs from 'fs';
 
 // =======================================
 
@@ -23,11 +24,34 @@ export class Configuration {
 
   static init() {
     // +++++++++++++++++++++++++[DONT CHANGE]+++++++++++++++++++++++++
-    if (!process.env.APP_PORT) {
-      require('dotenv').config({ path: path.resolve(process.cwd(), '.env') });
+    let envFileName = '';
+
+    if (process.env.NODE_ENV === 'production') {
+      envFileName = path.join(__dirname, '../.env.production');
+    }
+    if (process.env.NODE_ENV === 'development') {
+      envFileName = path.join(__dirname, '../.env.develop');
     }
 
-    console.log(`Environment: ${process.env.APP_ENV}`);
+    console.log(envFileName);
+
+    if (envFileName) {
+      if (fs.existsSync(envFileName)) {
+        require('dotenv').config({ path: envFileName });
+      } else {
+        console.error(
+          `Error: '${envFileName}' file not found. Please create one.`,
+        );
+        process.exit(1);
+      }
+    } else {
+      console.error(
+        "Error: Environment not set correctly. Please specify NODE_ENV as 'production' or 'development'.",
+      );
+      process.exit(1);
+    }
+
+    console.log(`Environment: ${process.env.NODE_ENV}`);
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     // ====== SET Config HERE ======

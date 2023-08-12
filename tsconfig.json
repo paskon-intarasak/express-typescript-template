@@ -1,14 +1,15 @@
 {
-	"compilerOptions": {
-		"module": "commonjs",
-		"target": "ESNext",
-		"sourceMap": true,
-		"outDir": "dist",
-		"emitDecoratorMetadata": true,
-		"experimentalDecorators": true,
-		"esModuleInterop": false,
-		"resolveJsonModule": true,
-		"allowSyntheticDefaultImports": true
-	},
-	"exclude": ["node_modules"]
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ESNext",
+    "sourceMap": true,
+    "outDir": "dist",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": false,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "ts-node": { "files": true },
+  "exclude": ["node_modules"]
 }
