@@ -4,7 +4,6 @@ import * as cors from 'cors';
 import * as base from './base';
 import { Configuration } from './config';
 import { GlobalRoutes } from './routes';
-import { createClient } from '@supabase/supabase-js';
 
 // ====== READ Configuration  ======
 Configuration.init();

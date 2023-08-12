@@ -1,15 +1,18 @@
-import { Request, Response } from "express";
-import { ApiResponse } from '../../base/common';
+import { Request, Response } from 'express';
+import { ReasonPhrases as httpReason } from 'http-status-codes';
+import { StatusCodes as httpStatus } from 'http-status-codes';
 
 export class HelloWorldCTRL {
-  constructor() { }
+  constructor() {}
 
-  hello = (req: Request, res: Response) => {
+  helloworld = async (req: Request, res: Response) => {
     try {
-      return ApiResponse.OK(res, 'Ok')
+      return res.send(httpStatus.OK).sendResponse(httpReason.OK);
     } catch (err) {
-      console.error(err)
-      return ApiResponse.InternalError(err)
+      console.error(err);
+      return res
+        .send(httpStatus.INTERNAL_SERVER_ERROR)
+        .sendErrorResponse(httpStatus.INTERNAL_SERVER_ERROR);
     }
-  }
+  };
 }
